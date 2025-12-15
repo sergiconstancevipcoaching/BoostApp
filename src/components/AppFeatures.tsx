@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dumbbell, Apple, Video, TrendingUp, Users, Trophy, Target, Clock } from 'lucide-react';
+import PhoneMockup from './PhoneMockup';
 
 const AppFeatures = () => {
   const features = [
@@ -121,16 +122,13 @@ const AppFeatures = () => {
 
               {/* Right - Phone Preview */}
               <div className="relative">
-                <div className="relative mx-auto w-[280px] h-[560px] bg-gray-800 rounded-[3rem] p-3 shadow-2xl border-8 border-gray-700">
-                  <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 rounded-[2.5rem] overflow-hidden relative">
-                    <img
-                      src="/ShottingAtlas-140.jpg"
-                      alt="Boost App Interface"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-
-                    <div className="absolute bottom-6 left-0 right-0 px-6">
+                <PhoneMockup
+                  imageUrl="https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/12/Captura-de-pantalla-2025-12-15-a-las-18.27.58.png"
+                  alt="Boost App Interface"
+                  size="small"
+                  showOverlay={true}
+                  overlayContent={
+                    <div className="px-6 pb-6">
                       <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-4 border border-white/20">
                         <div className="flex items-center justify-between mb-2">
                           <span className="text-white font-bold text-sm">Chest & Triceps</span>
@@ -141,9 +139,8 @@ const AppFeatures = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-6 bg-gray-800 rounded-b-3xl"></div>
-                </div>
+                  }
+                />
 
                 {/* Floating Elements */}
                 <div className="absolute -top-4 -right-4 bg-gold text-black px-4 py-2 rounded-full font-black text-sm shadow-xl">

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Star, ArrowRight, CheckCircle, Smartphone, Download, Trophy, Zap } from 'lucide-react';
+import PhoneMockup from './PhoneMockup';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -98,20 +99,12 @@ const Hero = () => {
                 {/* Glow Effect Behind Phone - Optimized */}
                 <div className="absolute inset-0 glow-gold opacity-40 rounded-[3rem]"></div>
 
-                {/* Mock iPhone 16 Frame with Glass Effect */}
-                <div className="relative mx-auto w-[320px] sm:w-[360px] h-[640px] sm:h-[720px] glass-card-light rounded-[3rem] p-3 shadow-2xl card-3d">
-                  <div className="w-full h-full bg-gradient-to-br from-gray-900 to-black rounded-[2.7rem] overflow-hidden relative">
-                    {/* App Screenshot */}
-                    <img
-                      src="https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/12/Captura-de-pantalla-2025-12-15-a-las-18.27.58.png"
-                      alt="Boost App"
-                      className="w-full h-full object-cover object-center"
-                    />
-                  </div>
-
-                  {/* iPhone 16 Dynamic Island */}
-                  <div className="absolute top-5 left-1/2 transform -translate-x-1/2 w-32 h-9 bg-black rounded-full shadow-lg"></div>
-                </div>
+                <PhoneMockup
+                  imageUrl="https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/12/Captura-de-pantalla-2025-12-15-a-las-18.27.58.png"
+                  alt="Boost App"
+                  size="large"
+                  className="card-3d"
+                />
 
                 {/* App Store Badges with Glassmorphism */}
                 <div className="flex justify-center gap-4 mt-10">
