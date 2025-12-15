@@ -30,7 +30,7 @@ const PhoneMockup: React.FC<PhoneMockupProps> = ({
           <img
             src={imageUrl}
             alt={alt}
-            className="w-full h-full object-cover object-top"
+            className="w-full h-full object-contain object-center"
           />
 
           {showOverlay && (
