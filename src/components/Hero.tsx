@@ -1,21 +1,47 @@
-import React from 'react';
-import { Star, ArrowRight, CheckCircle, Smartphone, Download, Trophy } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { Star, ArrowRight, CheckCircle, Smartphone, Download, Trophy, Zap } from 'lucide-react';
 
 const Hero = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const { clientX, clientY } = e;
+      const moveX = (clientX - window.innerWidth / 2) * 0.01;
+      const moveY = (clientY - window.innerHeight / 2) * 0.01;
+
+      const parallaxElements = document.querySelectorAll('.parallax');
+      parallaxElements.forEach((el, index) => {
+        const speed = (index + 1) * 0.5;
+        (el as HTMLElement).style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-800 pt-20">
-      {/* Background Image */}
+    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20">
+      {/* Animated Gradient Mesh Background */}
+      <div className="absolute inset-0 gradient-mesh opacity-50"></div>
+
+      {/* Background Image with Parallax */}
       <div className="absolute inset-0 z-0">
         <img
           src="/sg foto 1.jpeg"
           alt="Sergi Constance"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center scale-110"
           loading="eager"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/50"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/90 to-black/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/50"></div>
       </div>
+
+      {/* Floating Glow Orbs */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-gold/20 rounded-full blur-[120px] float-element"></div>
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-gold-light/20 rounded-full blur-[100px] float-element" style={{ animationDelay: '2s' }}></div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 py-8">
@@ -25,103 +51,109 @@ const Hero = () => {
             {/* Left Column - Main Content */}
             <div className="text-center lg:text-left">
 
-              {/* App Badge */}
-              <div className="inline-flex items-center bg-gold/20 backdrop-blur-md border border-gold/40 rounded-full px-6 py-3 mb-6">
-                <Smartphone className="w-5 h-5 text-gold mr-3" />
-                <span className="text-gold font-bold text-sm tracking-wider">APP OFICIAL</span>
+              {/* Premium Badge */}
+              <div className="inline-flex items-center glass-card-light rounded-full px-6 py-3 mb-8 shimmer">
+                <Zap className="w-5 h-5 text-gold mr-3" />
+                <span className="gradient-text font-black text-sm tracking-widest">APLICACIÓN OFICIAL</span>
               </div>
 
-              {/* Main Headline */}
-              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-6 leading-none text-white tracking-wider" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                <span className="block mb-2">BOOST</span>
-                <span className="text-gold block text-4xl sm:text-5xl md:text-6xl lg:text-7xl">by Sergi Constance</span>
+              {/* Main Headline with Gradient Text */}
+              <h1 className="text-7xl sm:text-8xl md:text-9xl lg:text-[12rem] font-black mb-6 leading-none tracking-wider parallax" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                <span className="block mb-2 gradient-text">BOOST</span>
+                <span className="text-white block text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+                  by <span className="gradient-text">Sergi Constance</span>
+                </span>
               </h1>
 
               {/* Professional Subheadline */}
-              <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
+              <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
                 Transforma tu físico con los programas de entrenamiento y nutrición del{' '}
-                <span className="text-gold font-semibold">IFBB Pro</span>
-                {' '}que interpretó a Zeus
+                <span className="gradient-text font-bold">IFBB Pro</span>
+                {' '}que interpretó a Zeus en Justice League
               </p>
 
-              {/* Professional CTAs */}
-              <div className="flex flex-col sm:flex-row gap-4 mb-10 justify-center lg:justify-start">
+              {/* Premium CTAs */}
+              <div className="flex flex-col sm:flex-row gap-6 mb-12 justify-center lg:justify-start">
                 <a
                   href="#pricing"
-                  className="inline-flex items-center justify-center bg-gold text-black px-10 py-5 rounded-2xl font-black text-xl hover:bg-yellow-400 transition-all duration-300 group shadow-2xl"
+                  className="btn-gold-premium inline-flex items-center justify-center px-12 py-6 rounded-2xl font-black text-xl tracking-wider group"
                 >
                   <Download className="w-6 h-6 mr-3" />
                   <span>EMPEZAR AHORA</span>
-                  <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
                 </a>
 
                 <a
                   href="#features"
-                  className="inline-flex items-center justify-center border-2 border-white/40 text-white px-10 py-5 rounded-2xl font-bold text-xl hover:bg-white/10 hover:border-white/60 transition-all duration-300 backdrop-blur-sm"
+                  className="glass-card-light inline-flex items-center justify-center px-12 py-6 rounded-2xl font-bold text-xl text-white hover:bg-white/10 transition-all duration-300 group"
                 >
-                  Ver Características
+                  Ver Programas
+                  <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
 
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap gap-6 text-sm text-gray-400 justify-center lg:justify-start">
-                <div className="flex items-center">
+              {/* Trust Indicators with Glow */}
+              <div className="flex flex-wrap gap-8 text-sm justify-center lg:justify-start">
+                <div className="flex items-center glass-card px-4 py-2 rounded-full">
                   <CheckCircle className="w-5 h-5 text-gold mr-3" />
-                  <span>100K+ Descargas</span>
+                  <span className="text-white font-semibold">100K+ Descargas</span>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center glass-card px-4 py-2 rounded-full">
                   <CheckCircle className="w-5 h-5 text-gold mr-3" />
-                  <span>iOS & Android</span>
+                  <span className="text-white font-semibold">iOS & Android</span>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center glass-card px-4 py-2 rounded-full">
                   <CheckCircle className="w-5 h-5 text-gold mr-3" />
-                  <span>7 Días Gratis</span>
+                  <span className="text-white font-semibold">7 Días Gratis</span>
                 </div>
               </div>
             </div>
 
-            {/* Right Column - App Preview */}
-            <div className="text-center mt-8 lg:mt-0">
+            {/* Right Column - App Preview with 3D Effect */}
+            <div className="text-center mt-8 lg:mt-0 parallax">
               <div className="relative w-full max-w-md mx-auto">
-                {/* Mock Phone Frame */}
-                <div className="relative mx-auto w-[280px] sm:w-[320px] h-[560px] sm:h-[640px] bg-gray-900 rounded-[3rem] p-3 shadow-2xl border-8 border-gray-800">
-                  <div className="w-full h-full bg-gradient-to-br from-gray-800 to-black rounded-[2.5rem] overflow-hidden relative">
-                    {/* App Screenshot Placeholder */}
+                {/* Glow Effect Behind Phone */}
+                <div className="absolute inset-0 glow-gold-intense opacity-50 blur-3xl rounded-[3rem]"></div>
+
+                {/* Mock Phone Frame with Glass Effect */}
+                <div className="relative mx-auto w-[300px] sm:w-[340px] h-[600px] sm:h-[680px] glass-card-light rounded-[3.5rem] p-4 shadow-2xl card-3d">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-900 to-black rounded-[3rem] overflow-hidden relative">
+                    {/* App Screenshot */}
                     <img
                       src="/ShottingAtlas-137.jpg"
                       alt="Boost App"
                       className="w-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
 
-                    {/* Boost Logo Overlay */}
-                    <div className="absolute bottom-8 left-0 right-0 text-center">
-                      <div className="text-4xl font-black text-white mb-2">BOOST</div>
-                      <div className="text-gold text-sm font-bold tracking-widest">SERGI CONSTANCE</div>
+                    {/* Boost Logo Overlay with Glow */}
+                    <div className="absolute bottom-10 left-0 right-0 text-center">
+                      <div className="text-5xl font-black gradient-text mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>BOOST</div>
+                      <div className="gradient-text text-sm font-bold tracking-widest">SERGI CONSTANCE</div>
                     </div>
                   </div>
 
                   {/* Phone Notch */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-40 h-6 bg-gray-900 rounded-b-3xl"></div>
+                  <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-40 h-7 bg-black rounded-b-3xl"></div>
                 </div>
 
-                {/* App Store Badges */}
-                <div className="flex justify-center gap-4 mt-8">
-                  <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2 hover:bg-white/20 transition-all cursor-pointer">
-                    <div className="flex items-center gap-2">
-                      <Download className="w-5 h-5 text-white" />
+                {/* App Store Badges with Glassmorphism */}
+                <div className="flex justify-center gap-4 mt-10">
+                  <div className="glass-card-light px-6 py-3 rounded-2xl hover:bg-white/15 transition-all cursor-pointer card-3d">
+                    <div className="flex items-center gap-3">
+                      <Download className="w-6 h-6 text-gold" />
                       <div className="text-left">
-                        <div className="text-[10px] text-gray-400">Download on</div>
-                        <div className="text-sm font-bold text-white">App Store</div>
+                        <div className="text-[11px] text-gray-400 font-medium">Download on</div>
+                        <div className="text-base font-black text-white tracking-wide">App Store</div>
                       </div>
                     </div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-4 py-2 hover:bg-white/20 transition-all cursor-pointer">
-                    <div className="flex items-center gap-2">
-                      <Download className="w-5 h-5 text-white" />
+                  <div className="glass-card-light px-6 py-3 rounded-2xl hover:bg-white/15 transition-all cursor-pointer card-3d">
+                    <div className="flex items-center gap-3">
+                      <Download className="w-6 h-6 text-gold" />
                       <div className="text-left">
-                        <div className="text-[10px] text-gray-400">Get it on</div>
-                        <div className="text-sm font-bold text-white">Google Play</div>
+                        <div className="text-[11px] text-gray-400 font-medium">Get it on</div>
+                        <div className="text-base font-black text-white tracking-wide">Google Play</div>
                       </div>
                     </div>
                   </div>
@@ -130,61 +162,54 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Stats & Social Proof */}
+          {/* Stats with Glass Cards */}
           <div className="w-full">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center transform hover:scale-105 transition-transform">
-                <div className="text-4xl font-black text-gold mb-2">100K+</div>
-                <div className="text-gray-300 font-medium text-sm">Usuarios Activos</div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <div className="glass-card rounded-3xl p-8 text-center card-3d">
+                <div className="text-5xl font-black gradient-text mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>100K+</div>
+                <div className="text-gray-300 font-semibold text-base">Usuarios Activos</div>
               </div>
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center transform hover:scale-105 transition-transform">
-                <div className="text-4xl font-black text-gold mb-2">50+</div>
-                <div className="text-gray-300 font-medium text-sm">Programas</div>
+              <div className="glass-card rounded-3xl p-8 text-center card-3d">
+                <div className="text-5xl font-black gradient-text mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>50+</div>
+                <div className="text-gray-300 font-semibold text-base">Programas</div>
               </div>
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center transform hover:scale-105 transition-transform">
-                <div className="text-4xl font-black text-gold mb-2">4.9</div>
-                <div className="text-gray-300 font-medium text-sm">Rating</div>
+              <div className="glass-card rounded-3xl p-8 text-center card-3d">
+                <div className="text-5xl font-black gradient-text mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>4.9★</div>
+                <div className="text-gray-300 font-semibold text-base">Rating</div>
               </div>
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center transform hover:scale-105 transition-transform">
-                <div className="text-4xl font-black text-gold mb-2">24/7</div>
-                <div className="text-gray-300 font-medium text-sm">Acceso Total</div>
+              <div className="glass-card rounded-3xl p-8 text-center card-3d">
+                <div className="text-5xl font-black gradient-text mb-3" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>24/7</div>
+                <div className="text-gray-300 font-semibold text-base">Acceso Total</div>
               </div>
             </div>
 
-            {/* Social Proof */}
+            {/* Social Proof with Premium Glass Effect */}
             <div className="flex justify-center">
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 max-w-2xl w-full">
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <div className="glass-card-light rounded-3xl p-8 max-w-3xl w-full card-3d">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
                   <div className="flex items-center">
-                    <div className="flex -space-x-3 mr-4">
+                    <div className="flex -space-x-4 mr-5">
                       {[1,2,3,4,5].map((i) => (
-                        <img
-                          key={i}
-                          src={`https://images.pexels.com/photos/${1000000 + i}/pexels-photo-${1000000 + i}.jpeg?auto=compress&cs=tinysrgb&w=60&h=60&fit=crop&crop=face`}
-                          alt={`Usuario ${i}`}
-                          className="w-12 h-12 rounded-full border-3 border-gray-900 object-cover"
-                          loading="lazy"
-                          decoding="async"
-                        />
+                        <div key={i} className="w-14 h-14 rounded-full border-4 border-black bg-gradient-to-br from-gold-dark to-gold-light"></div>
                       ))}
                     </div>
                     <div className="text-left">
-                      <div className="flex items-center mb-1">
+                      <div className="flex items-center mb-2">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-5 h-5 text-gold fill-current" />
+                          <Star key={i} className="w-6 h-6 text-gold fill-current" />
                         ))}
                       </div>
-                      <p className="text-gray-300 font-semibold">Miles de transformaciones</p>
+                      <p className="text-white font-bold text-lg">Miles de transformaciones</p>
                     </div>
                   </div>
 
-                  <div className="h-12 w-px bg-white/20 hidden sm:block"></div>
+                  <div className="h-16 w-px bg-gradient-to-b from-transparent via-gold to-transparent hidden sm:block"></div>
 
-                  <div className="flex items-center gap-3">
-                    <Trophy className="w-8 h-8 text-gold" />
+                  <div className="flex items-center gap-4">
+                    <Trophy className="w-10 h-10 text-gold" />
                     <div className="text-left">
-                      <div className="text-white font-black text-lg">IFBB Pro</div>
-                      <div className="text-gray-400 text-sm">Coach Certificado</div>
+                      <div className="text-white font-black text-2xl tracking-wide" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>IFBB PRO</div>
+                      <div className="text-gray-300 text-sm font-medium">Coach Certificado</div>
                     </div>
                   </div>
                 </div>

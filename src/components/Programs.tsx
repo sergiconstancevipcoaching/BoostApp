@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dumbbell, Flame, Zap, Target, Award, TrendingUp, Repeat, Calendar } from 'lucide-react';
+import { Dumbbell, Flame, Zap, Target, Award, TrendingUp, Repeat, Calendar, ArrowRight } from 'lucide-react';
 
 const Programs = () => {
   const programs = [
@@ -70,85 +70,100 @@ const Programs = () => {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section className="py-32 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 gradient-mesh opacity-30"></div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">
 
           {/* Header */}
-          <div className="text-center mb-20">
-            <div className="inline-flex items-center bg-gold/10 border border-gold/30 rounded-full px-6 py-3 mb-8">
+          <div className="text-center mb-24">
+            <div className="inline-flex items-center glass-card-light rounded-full px-6 py-3 mb-8 shimmer">
               <Dumbbell className="w-5 h-5 text-gold mr-3" />
-              <span className="text-gold font-bold text-sm tracking-wider">PROGRAMAS</span>
+              <span className="gradient-text font-black text-sm tracking-widest">PROGRAMAS DE ÉLITE</span>
             </div>
 
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 text-gray-900">
+            <h2 className="text-6xl md:text-7xl lg:text-8xl font-black mb-8 text-white leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
               Elige tu
-              <span className="block text-gold mt-2">Programa</span>
+              <span className="block gradient-text mt-2">Programa</span>
             </h2>
 
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Cada programa está diseñado con la experiencia de 15+ años compitiendo al máximo nivel. Selecciona según tu objetivo y nivel.
             </p>
           </div>
 
           {/* Programs Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
             {programs.map((program, index) => (
               <div
                 key={index}
-                className={`relative group rounded-3xl p-8 transition-all duration-300 hover:-translate-y-2 ${
+                className={`relative group rounded-3xl p-8 transition-all duration-500 card-3d ${
                   program.popular
-                    ? 'bg-gradient-to-br from-gray-900 to-black text-white shadow-2xl border-2 border-gold'
-                    : 'bg-gray-50 hover:bg-white border-2 border-gray-200 hover:border-gold/30 shadow-lg hover:shadow-xl'
+                    ? 'glass-card-light border-2 border-gold shadow-2xl glow-gold'
+                    : 'glass-card border border-white/10 hover:border-gold/30'
                 }`}
               >
                 {program.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gold text-black px-4 py-1 rounded-full font-black text-xs">
-                      POPULAR
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <div className="btn-gold-premium px-6 py-2 rounded-full font-black text-xs tracking-wider">
+                      MÁS POPULAR
                     </div>
                   </div>
                 )}
 
-                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${
-                  program.popular ? 'bg-gold/20' : 'bg-white border-2 border-gray-200'
+                <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 ${
+                  program.popular ? 'bg-gold/20 glow-gold' : 'glass-card-light'
                 }`}>
-                  <program.icon className={`w-8 h-8 ${program.popular ? 'text-gold' : 'text-gray-900'}`} />
+                  <program.icon className="w-10 h-10 text-gold" />
                 </div>
 
-                <h3 className={`text-2xl font-black mb-3 ${program.popular ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className="text-3xl font-black mb-4 text-white" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                   {program.name}
                 </h3>
 
-                <div className="space-y-2 mb-4">
-                  <div className={`text-sm font-bold ${program.popular ? 'text-gold' : 'text-gray-600'}`}>
-                    {program.duration}
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-gold"></div>
+                    <div className="text-sm font-bold gradient-text">
+                      {program.duration}
+                    </div>
                   </div>
-                  <div className={`text-xs font-semibold ${program.popular ? 'text-gray-300' : 'text-gray-500'}`}>
-                    {program.level}
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-gold"></div>
+                    <div className="text-sm font-semibold text-gray-300">
+                      {program.level}
+                    </div>
                   </div>
                 </div>
 
-                <p className={`leading-relaxed ${program.popular ? 'text-gray-300' : 'text-gray-600'}`}>
+                <p className="text-gray-300 leading-relaxed mb-6">
                   {program.description}
                 </p>
+
+                <div className="flex items-center text-gold font-bold text-sm group-hover:translate-x-2 transition-transform duration-300">
+                  Ver detalles
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </div>
               </div>
             ))}
           </div>
 
           {/* On-Demand Workouts */}
-          <div className="bg-gradient-to-r from-gold/5 via-gold/10 to-gold/5 rounded-3xl p-12 border-2 border-gold/30">
+          <div className="glass-card-light rounded-3xl p-12 border-2 border-gold/30 glow-gold mb-20">
             <div className="text-center max-w-4xl mx-auto">
-              <div className="inline-flex items-center bg-gold/20 border border-gold/40 rounded-full px-6 py-3 mb-6">
+              <div className="inline-flex items-center glass-card rounded-full px-6 py-3 mb-8 shimmer">
                 <Zap className="w-5 h-5 text-gold mr-3" />
-                <span className="text-gold font-bold text-sm tracking-wider">ENTRENAMIENTOS ON-DEMAND</span>
+                <span className="gradient-text font-black text-sm tracking-widest">ENTRENAMIENTOS ON-DEMAND</span>
               </div>
 
-              <h3 className="text-4xl md:text-5xl font-black text-gray-900 mb-6">
-                Más de 200+ Entrenamientos
+              <h3 className="text-5xl md:text-6xl font-black mb-8 leading-none" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                <span className="gradient-text">200+</span>
+                <span className="text-white"> Entrenamientos</span>
               </h3>
 
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl text-gray-300 mb-10 leading-relaxed">
                 ¿No quieres seguir un programa completo? Accede a cientos de entrenamientos individuales organizados por músculo, tiempo y equipo disponible.
               </p>
 
@@ -156,10 +171,12 @@ const Programs = () => {
                 {['Pecho', 'Espalda', 'Piernas', 'Hombros', 'Brazos', 'Core', 'Full Body', 'Cardio'].map((muscle, index) => (
                   <div
                     key={index}
-                    className="bg-white rounded-2xl p-4 border-2 border-gray-200 hover:border-gold transition-colors"
+                    className="glass-card rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 card-3d group"
                   >
-                    <div className="font-black text-gray-900">{muscle}</div>
-                    <div className="text-sm text-gray-500">25+ workouts</div>
+                    <div className="font-black text-white text-lg mb-2 group-hover:text-gold transition-colors" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+                      {muscle}
+                    </div>
+                    <div className="text-sm text-gray-400">25+ workouts</div>
                   </div>
                 ))}
               </div>
@@ -167,15 +184,16 @@ const Programs = () => {
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-16">
-            <p className="text-gray-600 text-lg mb-6">
+          <div className="text-center">
+            <p className="text-gray-300 text-xl mb-8 font-medium">
               Todos los programas incluidos con tu suscripción
             </p>
             <a
               href="#pricing"
-              className="inline-flex items-center bg-gray-900 text-white px-12 py-5 rounded-2xl font-black text-xl hover:bg-black transition-all duration-300 shadow-xl"
+              className="btn-gold-premium inline-flex items-center px-12 py-6 rounded-2xl font-black text-xl tracking-wider group"
             >
               Ver Planes
+              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-2 transition-transform duration-300" />
             </a>
           </div>
         </div>

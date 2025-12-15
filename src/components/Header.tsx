@@ -15,24 +15,24 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      className={`fixed w-full top-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-black/90 backdrop-blur-lg border-b border-gold/30'
+          ? 'glass-card-light backdrop-blur-2xl border-b border-gold/30 shadow-2xl'
           : 'bg-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center gap-3 group">
-            <div className="bg-gold p-2 rounded-lg group-hover:bg-gold-light transition-colors">
+            <div className="bg-gold p-3 rounded-xl group-hover:bg-gold-light transition-all duration-300 group-hover:scale-110 shimmer">
               <Dumbbell className="w-6 h-6 text-black" />
             </div>
             <div>
-              <div className="text-2xl font-black text-white tracking-wider" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
+              <div className="text-3xl font-black gradient-text tracking-wider" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
                 BOOST
               </div>
-              <div className="text-xs text-gold font-bold tracking-widest">
+              <div className="text-[10px] text-gold font-bold tracking-widest">
                 SERGI CONSTANCE
               </div>
             </div>
@@ -41,7 +41,7 @@ const Header = () => {
           {/* CTA */}
           <a
             href="#pricing"
-            className="bg-gold hover:bg-gold-light text-black font-black px-6 py-3 rounded-xl text-sm tracking-wider transition-all duration-300 shadow-lg"
+            className="btn-gold-premium px-8 py-3 rounded-xl text-sm tracking-wider font-black"
           >
             <span className="hidden sm:inline">EMPEZAR AHORA</span>
             <span className="sm:hidden">EMPEZAR</span>
