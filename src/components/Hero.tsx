@@ -80,7 +80,7 @@ const Hero = () => {
               <div className="flex flex-wrap gap-8 text-sm justify-center lg:justify-start">
                 <div className="flex items-center glass-card px-4 py-2 rounded-full">
                   <CheckCircle className="w-5 h-5 text-gold mr-3" />
-                  <span className="text-white font-semibold">100K+ Descargas</span>
+                  <span className="text-white font-semibold">30K+ Descargas</span>
                 </div>
                 <div className="flex items-center glass-card px-4 py-2 rounded-full">
                   <CheckCircle className="w-5 h-5 text-gold mr-3" />
