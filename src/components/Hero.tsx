@@ -98,26 +98,19 @@ const Hero = () => {
                 {/* Glow Effect Behind Phone - Optimized */}
                 <div className="absolute inset-0 glow-gold opacity-40 rounded-[3rem]"></div>
 
-                {/* Mock Phone Frame with Glass Effect */}
-                <div className="relative mx-auto w-[300px] sm:w-[340px] h-[600px] sm:h-[680px] glass-card-light rounded-[3.5rem] p-4 shadow-2xl card-3d">
-                  <div className="w-full h-full bg-gradient-to-br from-gray-900 to-black rounded-[3rem] overflow-hidden relative">
+                {/* Mock iPhone 16 Frame with Glass Effect */}
+                <div className="relative mx-auto w-[320px] sm:w-[360px] h-[640px] sm:h-[720px] glass-card-light rounded-[3rem] p-3 shadow-2xl card-3d">
+                  <div className="w-full h-full bg-gradient-to-br from-gray-900 to-black rounded-[2.7rem] overflow-hidden relative">
                     {/* App Screenshot */}
                     <img
-                      src="/ShottingAtlas-137.jpg"
+                      src="https://sergiconstance-9fn0dyoiqm.live-website.com/wp-content/uploads/2025/12/Captura-de-pantalla-2025-12-15-a-las-18.27.58.png"
                       alt="Boost App"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-center"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-
-                    {/* Boost Logo Overlay with Glow */}
-                    <div className="absolute bottom-10 left-0 right-0 text-center">
-                      <div className="text-5xl font-black gradient-text mb-2" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>BOOST</div>
-                      <div className="gradient-text text-sm font-bold tracking-widest">SERGI CONSTANCE</div>
-                    </div>
                   </div>
 
-                  {/* Phone Notch */}
-                  <div className="absolute top-4 left-1/2 transform -translate-x-1/2 w-40 h-7 bg-black rounded-b-3xl"></div>
+                  {/* iPhone 16 Dynamic Island */}
+                  <div className="absolute top-5 left-1/2 transform -translate-x-1/2 w-32 h-9 bg-black rounded-full shadow-lg"></div>
                 </div>
 
                 {/* App Store Badges with Glassmorphism */}
