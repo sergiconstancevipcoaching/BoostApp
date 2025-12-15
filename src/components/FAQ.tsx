@@ -74,8 +74,7 @@ const FAQ = () => {
     <section ref={sectionRef} className="py-16 sm:py-24 lg:py-32 bg-white relative overflow-hidden">
       <div className="absolute inset-0 gradient-mesh opacity-15"></div>
 
-      <div className="absolute top-40 right-10 w-72 h-72 bg-gold/6 rounded-full blur-[50px] float-element"></div>
-      <div className="absolute bottom-40 left-10 w-80 h-80 bg-gold-light/6 rounded-full blur-[50px] float-element" style={{ animationDelay: '4s' }}></div>
+      <div className="absolute top-40 right-10 w-56 h-56 bg-gold/3 rounded-full blur-[30px] float-element"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className={`max-w-5xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>

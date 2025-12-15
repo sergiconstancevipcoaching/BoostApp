@@ -81,9 +81,7 @@ const Testimonials = () => {
     <section id="transformations" className="py-24 bg-gray-900 relative overflow-hidden">
       <div className="absolute inset-0 gradient-mesh opacity-25"></div>
 
-      <div className="absolute top-10 left-20 w-72 h-72 bg-gold/10 rounded-full blur-[50px] float-element"></div>
-      <div className="absolute bottom-10 right-20 w-80 h-80 bg-gold-light/10 rounded-full blur-[50px] float-element" style={{ animationDelay: '3.5s' }}></div>
-      <div className="absolute top-1/3 right-10 w-56 h-56 bg-gold-dark/8 rounded-full blur-[40px] float-element" style={{ animationDelay: '1.5s' }}></div>
+      <div className="absolute top-10 left-20 w-56 h-56 bg-gold/5 rounded-full blur-[30px] float-element"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">

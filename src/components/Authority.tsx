@@ -57,8 +57,7 @@ const Authority = () => {
     <section ref={sectionRef} id="authority" className="py-16 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
       <div className="absolute inset-0 gradient-mesh opacity-20"></div>
 
-      <div className="absolute top-20 right-10 w-80 h-80 bg-gold/8 rounded-full blur-[50px] float-element"></div>
-      <div className="absolute bottom-20 left-10 w-72 h-72 bg-gold-light/8 rounded-full blur-[50px] float-element" style={{ animationDelay: '3s' }}></div>
+      <div className="absolute top-20 right-10 w-56 h-56 bg-gold/4 rounded-full blur-[30px] float-element"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">

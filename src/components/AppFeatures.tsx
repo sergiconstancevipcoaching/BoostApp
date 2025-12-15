@@ -51,9 +51,7 @@ const AppFeatures = () => {
       <div className="absolute inset-0 aurora-bg"></div>
       <div className="absolute inset-0 gradient-mesh opacity-20"></div>
 
-      <div className="absolute top-40 right-20 w-72 h-72 bg-gold/12 rounded-full blur-[50px] float-element"></div>
-      <div className="absolute bottom-40 left-20 w-80 h-80 bg-gold-light/12 rounded-full blur-[50px] float-element" style={{ animationDelay: '3s' }}></div>
-      <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-gold-dark/10 rounded-full blur-[50px] float-element" style={{ animationDelay: '5s' }}></div>
+      <div className="absolute top-40 right-20 w-56 h-56 bg-gold/6 rounded-full blur-[30px] float-element"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-7xl mx-auto">

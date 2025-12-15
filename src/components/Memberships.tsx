@@ -73,9 +73,7 @@ const Memberships = () => {
       <div className="absolute inset-0 aurora-bg"></div>
       <div className="absolute inset-0 gradient-mesh opacity-30"></div>
 
-      <div className="absolute top-20 left-10 w-80 h-80 bg-gold/12 rounded-full blur-[50px] float-element"></div>
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-gold-light/12 rounded-full blur-[50px] float-element" style={{ animationDelay: '4s' }}></div>
-      <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-gold-dark/10 rounded-full blur-[50px] float-element" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-20 left-10 w-56 h-56 bg-gold/6 rounded-full blur-[30px] float-element"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto">
