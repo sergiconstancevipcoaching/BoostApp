@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Dumbbell } from 'lucide-react';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,8 +24,8 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center gap-3 group">
-            <div className="bg-gold p-3 rounded-xl group-hover:bg-gold-light transition-all duration-300 group-hover:scale-110 shimmer">
-              <Dumbbell className="w-6 h-6 text-black" />
+            <div className="bg-gold p-3 rounded-xl group-hover:bg-gold-light transition-all duration-300 group-hover:scale-110 shimmer flex items-center justify-center">
+              <img src="/boost_favicon.png" alt="Boost" className="w-6 h-6" />
             </div>
             <div>
               <div className="text-3xl font-black gradient-text tracking-wider" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Star, Check, Award, ArrowRight, Sparkles, Crown, Zap } from 'lucide-react';
+import { Star, Check, Award, ArrowRight, Sparkles, Crown } from 'lucide-react';
 
 const Memberships = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -31,7 +31,7 @@ const Memberships = () => {
       totalPrice: null,
       period: "/mes",
       popular: false,
-      icon: Zap,
+      icon: 'boost',
       badge: null,
       features: [
         "Acceso completo a todos los programas",
@@ -135,7 +135,11 @@ const Memberships = () => {
                   <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-12 ${
                     plan.popular ? 'bg-gold/20 glow-gold' : 'glass-card-light'
                   }`}>
-                    <plan.icon className="w-10 h-10 text-gold" />
+                    {plan.icon === 'boost' ? (
+                      <img src="/boost_favicon.png" alt="Boost" className="w-10 h-10" />
+                    ) : (
+                      <plan.icon className="w-10 h-10 text-gold" />
+                    )}
                   </div>
 
                   {/* Plan Name */}

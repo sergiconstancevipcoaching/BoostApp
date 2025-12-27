@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Check, Shield, Lock, CreditCard, ArrowLeft, Star, Crown, Zap } from 'lucide-react';
+import { Check, Shield, Lock, CreditCard, ArrowLeft, Star, Crown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -14,7 +14,7 @@ const Checkout = () => {
       total: "19.99",
       period: "mes",
       savings: null,
-      icon: Zap,
+      icon: 'boost',
       features: [
         "Acceso completo a todos los programas",
         "200+ entrenamientos on-demand",
@@ -146,7 +146,7 @@ const Checkout = () => {
                         </div>
                         <div>
                           <div className="flex items-center gap-2 mb-1">
-                            <Zap className="w-5 h-5 text-gray-600" />
+                            <img src="/boost_favicon.png" alt="Boost" className="w-5 h-5" />
                             <h3 className="text-xl font-black text-gray-900">Plan Mensual</h3>
                           </div>
                           <p className="text-sm text-gray-600 font-semibold">

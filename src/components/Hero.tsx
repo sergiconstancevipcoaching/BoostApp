@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Star, ArrowRight, CheckCircle, Smartphone, Download, Trophy, Zap } from 'lucide-react';
+import { Star, ArrowRight, CheckCircle, Smartphone, Download, Trophy } from 'lucide-react';
 import PhoneMockup from './PhoneMockup';
 
 const Hero = () => {
@@ -36,7 +36,7 @@ const Hero = () => {
 
               {/* Premium Badge */}
               <div className="inline-flex items-center glass-card-light rounded-full px-6 py-3 mb-8 shimmer">
-                <Zap className="w-5 h-5 text-gold mr-3" />
+                <img src="/boost_favicon.png" alt="Boost" className="w-5 h-5 mr-3" />
                 <span className="gradient-text font-black text-sm tracking-widest">APLICACIÓN OFICIAL</span>
               </div>
 

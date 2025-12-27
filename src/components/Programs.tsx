@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dumbbell, Flame, Zap, Target, Award, TrendingUp, Repeat, Calendar, ArrowRight } from 'lucide-react';
+import { Dumbbell, Flame, Target, Award, TrendingUp, Repeat, Calendar, ArrowRight } from 'lucide-react';
 
 const Programs = () => {
   const programs = [
@@ -12,7 +12,7 @@ const Programs = () => {
       popular: true
     },
     {
-      icon: Zap,
+      icon: 'boost',
       name: "Shredded",
       duration: "8 semanas",
       level: "Todos los niveles",
@@ -116,7 +116,11 @@ const Programs = () => {
                 <div className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 ${
                   program.popular ? 'bg-gold/20 glow-gold' : 'glass-card-light'
                 }`}>
-                  <program.icon className="w-10 h-10 text-gold" />
+                  {program.icon === 'boost' ? (
+                    <img src="/boost_favicon.png" alt="Boost" className="w-10 h-10" />
+                  ) : (
+                    <program.icon className="w-10 h-10 text-gold" />
+                  )}
                 </div>
 
                 <h3 className="text-3xl font-black mb-4 text-white group-hover:text-glow transition-all" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
@@ -154,7 +158,7 @@ const Programs = () => {
           <div className="bento-card p-12 border-2 border-gold/30 glow-gold-intense neon-border mb-20">
             <div className="text-center max-w-4xl mx-auto">
               <div className="inline-flex items-center glass-card rounded-full px-6 py-3 mb-8 shimmer">
-                <Zap className="w-5 h-5 text-gold mr-3" />
+                <img src="/boost_favicon.png" alt="Boost" className="w-5 h-5 mr-3" />
                 <span className="gradient-text font-black text-sm tracking-widest">ENTRENAMIENTOS ON-DEMAND</span>
               </div>
 
